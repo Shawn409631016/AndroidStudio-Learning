@@ -38,9 +38,14 @@ public class GDD01 extends Activity
         String sex = rb1.isChecked() ? "M" : "F";
 
         //這些附加在 Intent 上的訊息都儲存在 Bundle 物件中
-
+        Bundle bundle = new Bundle();
+        bundle.putDouble("height", height);
+        bundle.putDouble("weight", weight);
+        bundle.putString("Sex", sex);
         //透過「intent.putExtras(bundle)」敘述，將「bundle」 物件附加在 Intent 上，隨著 Intent 送出而送出
-
+        Intent intent = new Intent(GDD01.this, GDD01_child.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
       }
     });
   }
