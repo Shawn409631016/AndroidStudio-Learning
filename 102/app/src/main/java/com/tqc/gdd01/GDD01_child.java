@@ -46,9 +46,8 @@ public void onClick(View v)
 private String format(double num)
         {
         // TO DO
-
-
-        return " ";
+                String msg = String.format("%.2f", num);
+        return msg;
 
         }
 
@@ -56,17 +55,34 @@ private String format(double num)
 private String getBMI (double height, double weight)
         {
         // TO DO
-
-
-        return " ";
+                Double bmi = weight/(height*height);
+                String msg = getString(R.string.report_result) + format(bmi);
+        return msg;
         }
 
 //依BMI值取得建議
 private String getAdvice (String Sex, double height, double weight)
         {
         // TO DO
-
-
-        return " ";
+                Double bmi = weight/(height*height);
+                String msg = "";
+                if (Sex.equals("M")){
+                        if (bmi > 25){
+                              msg = getString(R.string.advice_heavy);
+                        }else if (bmi < 20){
+                                msg = getString(R.string.advice_light);
+                        }else {
+                                msg = getString(R.string.advice_average);
+                        }
+                }else{
+                        if (bmi > 22){
+                                msg = getString(R.string.advice_heavy);
+                        }else if (bmi < 18){
+                                msg = getString(R.string.advice_light);
+                        }else {
+                                msg = getString(R.string.advice_average);
+                        }
+                }
+        return  msg;
         }
-        }
+ }
