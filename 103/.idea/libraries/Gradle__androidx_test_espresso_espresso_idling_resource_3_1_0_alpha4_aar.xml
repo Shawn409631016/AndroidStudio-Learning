@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test.espresso:espresso-idling-resource:3.1.0-alpha4@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.1.0-alpha4.aar/91ff3f6d4657dda59cefce0d2f90220e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.1.0-alpha4.aar/91ff3f6d4657dda59cefce0d2f90220e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.1.0-alpha4.aar/c3c5ca4d41b85ffe3e2e9c6302f1a23b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.1.0-alpha4.aar/c3c5ca4d41b85ffe3e2e9c6302f1a23b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/espresso-idling-resource-3.1.0-alpha4.aar/c3c5ca4d41b85ffe3e2e9c6302f1a23b/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.1.0-alpha4/fb26c0ecab7731924520599c62c8476a532b8110/espresso-idling-resource-3.1.0-alpha4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
