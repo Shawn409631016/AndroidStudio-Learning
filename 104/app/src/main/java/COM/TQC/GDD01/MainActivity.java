@@ -54,14 +54,16 @@ public class MainActivity extends AppCompatActivity {
         mButton02.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mImageView.setImageDrawable(null);
+                mImageView.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this, "已經清除圖片", Toast.LENGTH_LONG).show();
             }
         });
         //   TO DO  (3) 當ImageView有圖片時，點選該圖會以Log.d訊息方式設定tag為debug並顯示【你點選了圖片】。
         mImageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d("debug", "你點選了圖片");
             }
         });
 
