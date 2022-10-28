@@ -34,7 +34,14 @@ public class HippoCustomRecyclerViewAdapter extends RecyclerView.Adapter<HippoCu
       // TO DO
       textView = (TextView) view.findViewById(R.id.text_row_item_textView1);
       imageView = (ImageView) view.findViewById(R.id.text_row_item_imageView1);
-
+      view.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String pos = view.getTag().toString();
+          String msg = String.format("你點選的是第 %s 部電影",pos);
+          Toast.makeText(mContext, msg, Toast.LENGTH_LONG).show();
+        }
+      });
     }
 
     public TextView getTextView()
@@ -67,6 +74,10 @@ public class HippoCustomRecyclerViewAdapter extends RecyclerView.Adapter<HippoCu
   {
       //  指派ViewHolder物件，重複使用，動態載入電影名稱(TextView)及圖片Resource ID(ImageView)。
       // TO DO
+    viewHolder.itemView.setTag("" + position);
+    Movie movie = mDataSet.get(position);
+    viewHolder.textView.setText(movie.getName());
+    viewHolder.imageView.setImageResource(movie.getThumbnail());
   }
 
   @Override

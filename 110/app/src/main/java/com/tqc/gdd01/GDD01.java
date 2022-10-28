@@ -3,12 +3,14 @@ package com.tqc.gdd01;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -89,7 +91,12 @@ public class GDD01 extends Activity
             movie.setName("電影編號 #" + i);
             //  修正 RecyclerView 裡的電影租片清單為單數項目為milkyway.jpg，奇數項目為peacock.jpg
             // TO DO
-            movie.setThumbnail(R.drawable.milkyway);
+            if(1 % 2 == 0){
+                movie.setThumbnail(R.drawable.milkyway);
+            }else{
+                movie.setThumbnail(R.drawable.peacock);
+            }
+
             mDataset.add(movie);
         }
     }
@@ -148,12 +155,33 @@ public class GDD01 extends Activity
     {
         //  當使用者點到廣告圖片，以 Snackbar 在應用程式最下方顯示短暫訊息：「你點擊了上方廣告Banner」
         // TO DO
+        mCoordinatorLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent){
+                Snackbar snackbar = Snackbar.make(mCoordinatorLayout,
+                        "你點擊了上方廣告Banner",
+                        Snackbar.LENGTH_LONG);
+                snackbar.show();
+                return true;
+            }
+        });
     }
 
     private void initFloatingActionButton()
     {
         //  當按下FloatingActionButton時，以 Snackbar 在應用程式最下方顯示短暫訊息：「你點擊了浮動的+按鈕」
         // TO DO
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent){
+                Snackbar snackbar = Snackbar.make(mCoordinatorLayout,
+                        "你點擊了浮動的+按鈕",
+                        Snackbar.LENGTH_LONG);
+                snackbar.show();
+                return true;
+            }
+        });
     }
 
 }
