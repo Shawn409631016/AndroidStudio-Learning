@@ -66,6 +66,7 @@ public class NotificationHelper extends ContextWrapper
                 .setContentIntent(pendingintent)
                 .setAutoCancel(true)
                 .build();
+
         return notification;
     }
 
@@ -74,21 +75,39 @@ public class NotificationHelper extends ContextWrapper
         Intent intent = new Intent(this, MyMsgHandler.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         // TO DO
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.EXTRA_NOTIFICATION_MSG, body);
+        intent.putExtras(bundle);
 
         PendingIntent pendingintent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // TO DO
         RemoteViews expandedView = new RemoteViews(getPackageName(), R.layout.notification_expanded);
+        String curTime = DateUtils.formatDateTime(this, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME);
+        expandedView.setTextViewText(R.id.timestamp, curTime);
+        expandedView.setTextViewText(R.id.notification_message, body);
         // TO DO
 
         Intent leftIntent = new Intent(this, NotificationIntentService.class);
+        leftIntent.setAction(Constants.EXTRA_REMOTE_LEFT_BUTTON);
+        leftIntent.putExtras(bundle);
+        PendingIntent pendingIntent1 = PendingIntent.getService(this, 100,
+                leftIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        expandedView.setOnClickPendingIntent(R.id.notification_collapsed_left_button, pendingIntent1);
         // TO DO
 
         Intent rightIntent = new Intent(this, NotificationIntentService.class);
+        rightIntent.setAction(Constants.EXTRA_REMOTE_RIGHT_BUTTON);
+        bundle.putString(Constants.EXTRA_NOTIFICATION_URI, strUri);
+        rightIntent.putExtras(bundle);
+        PendingIntent pendingIntent2 = PendingIntent.getService(this, 200,
+                rightIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        expandedView.setOnClickPendingIntent(R.id.notification_collapsed_right_button, pendingIntent2);
         // TO DO
 
-        RemoteViews collapsedView = new RemoteViews(getPackageName(), R.layout.notification_collapsed);
         // TO DO
+        RemoteViews collapsedView = new RemoteViews(getPackageName(), R.layout.notification_collapsed);
+        collapsedView.setTextViewText(R.id.timestamp, curTime);
 
         Notification notification = new NotificationCompat.Builder(getApplicationContext(), PRIMARY_CHANNEL)
                 .setSmallIcon(R.drawable.sms)

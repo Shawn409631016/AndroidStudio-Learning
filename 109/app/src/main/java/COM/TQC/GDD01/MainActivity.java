@@ -100,6 +100,10 @@ public class MainActivity extends AppCompatActivity
   public void goToNotificationSettings(String channel)
   {
     //  TO DO
+    Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
+    intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel);
+    intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+    startActivity(intent);
   }
 
   @Override
