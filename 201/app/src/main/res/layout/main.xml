@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:orientation="vertical">
 
@@ -19,7 +20,9 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:ems="10"
-     android:inputType="numberDecimal" />
+     android:inputType="numberDecimal"
+     android:minHeight="48dp"
+     tools:ignore="SpeakableTextPresentCheck" />
 
  <TextView
      android:id="@+id/textView2"
@@ -33,7 +36,9 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:ems="10"
-     android:inputType="numberDecimal" />
+     android:inputType="numberDecimal"
+     android:minHeight="48dp"
+     tools:ignore="SpeakableTextPresentCheck" />
 
  <Button
      android:id="@+id/button"

@@ -28,8 +28,24 @@ public class GDD02 extends Activity
     setContentView(R.layout.main);
 
    // TO DO
+    fieldExchangeRate = findViewById(R.id.editTextNumberDecimal);
+    fieldNTD = findViewById(R.id.editTextNumberDecimal2);
+    tvResult = findViewById(R.id.textView3);
+    calcbutton = findViewById(R.id.button);
 
+    calcbutton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        double rate = Double.parseDouble(fieldExchangeRate.getText().toString());
+        double ntd = Double.parseDouble(fieldNTD.getText().toString());
+        String msg = getString(R.string.usd_result) + String.format("%.2f", ntd/rate);
+        tvResult.setText(msg);
+      }
+    });
 
+    SharedPreferences sharedPreferences = getSharedPreferences(PREF_ExchangeRate, 0);
+    String strRate = sharedPreferences.getString(PREF_ExchangeRate, "");
+    fieldExchangeRate.setText(strRate);
 
   }
 
